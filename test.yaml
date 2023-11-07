@@ -1,1 +1,9 @@
+output:
+  - platform: gpio
+    pin: D5
+    id: led_output
 
+interval:
+  - interval: 1s
+    then:
+      - output.toggle: led_output
