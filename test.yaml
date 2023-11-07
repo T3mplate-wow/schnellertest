@@ -6,4 +6,4 @@ output:
 interval:
   - interval: 1s
     then:
-      - light.turn_on: led_output
+      - output.turn_on: led_output
