@@ -6,4 +6,11 @@ output:
 interval:
   - interval: 1s
     then:
-      - output.turn_on: led_output
+      - lambda: |-
+          static bool state = false;
+          state = !state;
+          id(led_output).turn_on();
+          delay(500ms);
+          id(led_output).turn_off();
+          delay(500ms);
+      - output.set_level: led_output
