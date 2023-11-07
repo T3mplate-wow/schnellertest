@@ -3,7 +3,7 @@ light:
     pin: D5
     id: led_output
 
-interval:
-  - interval: 1s
-    then:
-      - light.toggle: led_output
+#interval:
+#  - interval: 1s
+#    then:
+#      - light.toggle: led_output
