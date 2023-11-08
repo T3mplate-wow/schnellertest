@@ -26,4 +26,4 @@ display:
     num_chips: 4
     intensity: 15
     lambda: |-
-      it.print(0, 0, id(digit_font), "HELLO!");
+      it.print(0, 0, id(digit_font), "Test!");
