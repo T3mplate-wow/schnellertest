@@ -5,7 +5,7 @@ output:
 
 output:
   - platform: gpio
-    pin: D7
+    pin: D3
     id: red
 
 interval:
@@ -32,4 +32,4 @@ display:
     intensity: 15
     reverse_enable: false
     lambda: |-
-      it.print(0, 0, id(digit_font), "Anne und Matthias:");
+      it.print(0, 0, id(digit_font), "Anne und Mathias:     ");
