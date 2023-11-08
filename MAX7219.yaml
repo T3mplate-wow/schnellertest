@@ -11,7 +11,7 @@ interval:
       - output.turn_off: led_output      
 
 font:
-  - file: "common/pixelmix.ttf"
+  - file: "pixelmix.ttf"
     id: digit_font
     size: 9
     
