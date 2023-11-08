@@ -13,7 +13,7 @@ interval:
 font:
   - file: "/config/www/Font/pixelmix.ttf"
     id: digit_font
-    size: 6
+    size: 8
     
 # Example configuration entry
 spi:
@@ -25,6 +25,6 @@ display:
     cs_pin: D2
     num_chips: 4
     intensity: 15
-    reverse_enable: false
+    reverse_enable: true
     lambda: |-
       it.print(0, 0, id(digit_font), "Test!");
