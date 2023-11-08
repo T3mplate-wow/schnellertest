@@ -1,0 +1,24 @@
+output:
+  - platform: gpio
+    pin: D5
+    id: led_output
+
+interval:
+  - interval: 10s
+    then:
+      - output.turn_on: led_output
+      - delay: 2s
+      - output.turn_off: led_output      
+
+# Example configuration entry
+spi:
+  clk_pin: D0
+  mosi_pin: D1
+
+display:
+  - platform: max7219digit
+    cs_pin: D2
+    num_chips: 4
+    intensity: 15
+    lambda: |-
+      it.print(0, 0, id(digit_font), "HELLO!");
