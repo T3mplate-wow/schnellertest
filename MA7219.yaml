@@ -2,8 +2,6 @@ output:
   - platform: gpio
     pin: D5
     id: green
-
-output:
   - platform: gpio
     pin: D3
     id: red
