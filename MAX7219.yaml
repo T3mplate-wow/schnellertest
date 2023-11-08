@@ -10,6 +10,11 @@ interval:
       - delay: 2s
       - output.turn_off: led_output      
 
+font:
+  - file: "common/pixelmix.ttf"
+    id: digit_font
+    size: 9
+    
 # Example configuration entry
 spi:
   clk_pin: D0
