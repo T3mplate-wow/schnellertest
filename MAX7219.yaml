@@ -1,14 +1,19 @@
 output:
   - platform: gpio
     pin: D5
-    id: led_output
+    id: green
+
+output:
+  - platform: gpio
+    pin: D6
+    id: red
 
 interval:
   - interval: 10s
     then:
-      - output.turn_on: led_output
+      - output.turn_on: green, red
       - delay: 2s
-      - output.turn_off: led_output      
+      - output.turn_off: green, red  
 
 font:
   - file: "/config/www/Font/pixelmix.ttf"
