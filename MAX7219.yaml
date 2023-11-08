@@ -5,15 +5,15 @@ output:
 
 output:
   - platform: gpio
-    pin: D6
+    pin: D7
     id: red
 
 interval:
   - interval: 10s
     then:
-      - output.turn_on: green, red
+      - output.turn_on: red
       - delay: 2s
-      - output.turn_off: green, red  
+      - output.turn_off: red  
 
 font:
   - file: "/config/www/Font/pixelmix.ttf"
