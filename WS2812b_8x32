@@ -1,0 +1,26 @@
+light:
+  - platform: fastled_clockless
+    chipset: WS2812B
+    pin: D3
+    num_leds: 256
+    rgb_order: GRB
+    name: "led_matrix"
+    id: led_matrix_light
+    default_transition_length: 0s
+    color_correct: [50%, 50%, 50%]
+    restore_mode: ALWAYS_ON
+
+
+display:
+  - platform: addressable_light
+    id: led_matrix_light
+    addressable_light_id: led_matrix_light
+    width: 32
+    height: 8
+    pixel_mapper: |-
+      if (x % 2 == 0) {
+        return (x * 8) + y;
+      }
+      return (x * 8) + (7 - y);
+    rotation: 0°
+    update_interval: 16ms
