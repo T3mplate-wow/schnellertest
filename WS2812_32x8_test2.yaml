@@ -6,10 +6,10 @@ substitutions:
   devicename: esp32-03
   xscrollpadding: "4" # in pix
 
-esphome:
-  name: $devicename
-  platform: ESP32
-  board: esp32dev
+#esphome:
+#  name: $devicename
+#  platform: ESP32
+#  board: esp32dev
  
 script:
   - id: start
