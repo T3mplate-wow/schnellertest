@@ -52,7 +52,7 @@ font:
  
 light:
   - platform: neopixelbus
-    variant: WS2812B
+    variant: WS2812
     pin: D3
     num_leds: 256
     rgb_order: GRB
