@@ -51,8 +51,8 @@ font:
  
  
 light:
-  - platform: fastled_clockless
-    chipset: WS2812B
+  - platform: neopixelbus
+    variant: WS2812B
     pin: D3
     num_leds: 256
     rgb_order: GRB
