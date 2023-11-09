@@ -1,19 +1,16 @@
 esp8266:
   board: d1_mini
   framework:
-    version: 2.7.4
-    
+    version: recommended
+
 light:
-  - platform: fastled_clockless
-    chipset: WS2812B
+  - platform: neopixelbus
+    type: GRB
+    variant: WS2812
     pin: D3
     num_leds: 256
-    rgb_order: GRB
-    name: "led_matrix"
+    name: "NeoPixel Light"
     id: led_matrix_light
-    default_transition_length: 0s
-    color_correct: [50%, 50%, 50%]
-    restore_mode: ALWAYS_ON
 
 
 display:
