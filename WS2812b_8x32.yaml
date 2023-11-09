@@ -26,3 +26,6 @@ display:
       return (x * 8) + (7 - y);
     rotation: 0°
     update_interval: 16ms
+    lambda: |-
+      // Print the string "Hello World!" at [0,10]
+      it.print(0, 10, id(my_font), "Hello World!");
