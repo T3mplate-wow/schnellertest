@@ -1,0 +1,93 @@
+esphome:
+  name: instagram-gewinnspiel
+  friendly_name: Instagram_Gewinnspiel
+
+esp8266:
+  board: d1_mini
+  framework:
+    version: recommended
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "JB/xJsnS2IODfILzFuRajPVWtbIOYIN68mQ20rgodEA="
+
+ota:
+  password: "e48b1f4a47f6b6f9ca8024e5b8ebddad"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+globals:
+  - id: nummer
+    type: int
+    restore_value: no
+    initial_value: "0"
+
+  - id: buchstaben 
+    type: char[4]
+    restore_value: no
+    initial_value: "{'b','o','o','t'}"
+
+  - id: mein_array
+    type: std::vector<std::string>
+    restore_value: no
+    initial_value: '{"Hello","World"}'
+
+  - id: kommentare
+    type: const char*[6]
+    restore_value: no
+    initial_value: '{
+      "zeilen_und_kaffee",
+      "_lauras.welt_",
+      "mamakind2016",
+      "nine121511",
+      "himbeergold",
+      "youdiditjudith"
+    }'
+
+
+font:
+  - file: "/config/www/Font/pixelmix.ttf"
+    id: digit_font
+    size: 8
+
+  - file: "/config/www/Font/Pixolletta8px.ttf"
+    id: digit_font_8px
+    size: 10
+
+    
+# Example configuration entry
+spi:
+  clk_pin: RX
+  mosi_pin: D4
+
+display:
+  - platform: max7219digit
+    cs_pin: D2
+    num_chips: 4
+    intensity: 2
+    reverse_enable: true
+    rotate_chip: 180
+    scroll_speed: 100ms
+    lambda: |-
+      //it.print(0, 0, id(digit_font), "Anne und Mathias:     ");
+      //it.print(0, 0, id(digit_font), id(mein_array)[1].c_str());
+
+      it.printf(0, 0, id(digit_font_8px), TextAlign::TOP_LEFT , "%s", id(kommentare)[id(nummer)]);
+
+
+interval:
+  - interval: 100ms
+    then:
+      - if:
+          condition:
+            - lambda: 'return id(nummer) < 4;'
+          then:
+            - lambda: 'id(nummer) += 1;'
+          else:
+            - lambda: 'id(nummer) = 0;'
